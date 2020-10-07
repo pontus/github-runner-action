@@ -1,0 +1,13 @@
+# action.yml
+name: 'Simple runner'
+description: 'Runs the requested script (like run:, but allow log parsing annotations)'
+inputs:
+  runstring:  # id of input
+    description: 'Script/command to run'
+    required: true
+    default: '/bin/ls'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.runstring }}
